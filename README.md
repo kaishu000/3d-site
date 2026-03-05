@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# statue-site-r3f
 
-## Getting Started
+3DCGモデル「Spaceship」を React Three Fiber (R3F) で表示するポートフォリオサイトです。スクロールに連動して3Dモデルの視点が変化します。
 
-First, run the development server:
+## 技術スタック
+
+- **フレームワーク**: Next.js 16 / React 19
+- **3D**: Three.js, React Three Fiber, @react-three/drei
+- **スタイル**: Tailwind CSS 4
+- **アニメーション**: Motion
+
+## 機能
+
+- **3Dシーン**: GLB形式のスペースシップモデルを Canvas 上で表示
+- **スクロール連動**: スクロール進捗に応じてモデルの位置・回転が4段階で切り替わり、複数のアングルから鑑賞可能
+- **セクション**: Hero（AURORA DYNAMICS）、About、Ability、Model Info など
+- **照明**: RectAreaLight による6面照明、環境光・指向性光
+
+## セットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバー起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## スクリプト
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| コマンド | 説明 |
+|----------|------|
+| `npm run dev` | 開発サーバー起動 |
+| `npm run build` | 本番ビルド |
+| `npm run start` | 本番サーバー起動 |
+| `npm run lint` | ESLint 実行 |
 
-## Learn More
+## プロジェクト構成（主要）
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── page.tsx      # トップページ（スクロール連動のメイン）
+│   ├── preview/      # プレビューページ
+│   └── layout.tsx
+├── components/
+│   ├── Scene.tsx     # R3F Canvas と照明
+│   ├── Spaceship.tsx # GLB 読み込み・スクロール連動の位置/回転
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── Ability.tsx
+│   ├── Info.tsx      # Model Info（Maya / Substance Painter 等）
+│   └── Header.tsx
+public/
+└── spaceship.glb     # 3Dモデル
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3Dモデルについて
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **ツール**: Autodesk Maya, Adobe Substance Painter
+- **形式**: GLB（`public/spaceship.glb`）
+- Model Info セクションで AO / ワイヤーフレーム / レンダー画像を掲載
 
-## Deploy on Vercel
+## ライセンス
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+private リポジトリです。
