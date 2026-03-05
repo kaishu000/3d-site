@@ -33,7 +33,7 @@ const Hero = () => {
             </motion.p>
             <div className="mt-4 flex justify-start gap-4">
                 <Link href="/preview" className="text-2xl border border-white px-8 py-2 text-white">Preview</Link>
-                <a href="https://github.com/kaishu000" className="text-2xl bg-white px-4 py-2 text-black font-bold flex gap-4 items-center">
+                <a href="https://github.com/kaishu000/3d-site" className="text-2xl bg-white px-4 py-2 text-black font-bold flex gap-4 items-center">
                     <Image src="/img/github-mark.png" width={36} height={36} alt="github-icon"/>
                     GitHub
                 </a>
